@@ -1,37 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<!-- This tells the browser how to read the document. -->
-	<meta charset="utf-8">
+<html ng-app="TicTacToe">
+<!--Show FCC the Camper News-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700italic|Oswald' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!--My CSS Stylesheets-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!--Angular.js-->
+    <script src="js/vendor/angular.min.js"></script>
+    <!--jQuery-->
+    <script src="js/vendor/jquery-2.1.4.min.js"></script>
+    <!-- Boostrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!--Modules-->
+    <script src="js/app.js"></script>
+    <!--Controllers-->
+    <script src="js/controllers/MainController.js"></script>
 
-	<!-- Tells the browser what the title of this page should be. -->
-	<title>Tic Tac Toe</title>
-
-	<!-- Load the page styles. -->
-	<link href="css/style.css" rel="stylesheet">
-	<meta name="viewport" content="width=device-width">
+    <title>Ziplines_09 Tic Tac Toe</title>
 </head>
 
-<body>
-	<div class="game-space">
-		<div class="row" id="row_1">
-			<div class="cell" id="cell-11"></div>
-			<div class="cell" id="cell-12"></div>
-			<div class="cell" id="cell-13"></div>
-		</div>
+<body ng-controller="MainController">
+  <header>
+      <h1>{{'TicTacToe'}}</h1>
+  </header>
 
-		<div class="row" id="row_2">
-			<div class="cell" id="cell-21"></div>
-			<div class="cell" id="cell-22"></div>
-			<div class="cell" id="cell-23"></div>
-		</div>
-
-		<div class="row" id="row_3">
-			<div class="cell" id="cell-31"></div>
-			<div class="cell" id="cell-32"></div>
-			<div class="cell" id="cell-33"></div>
-		</div>
-	</div>
+  <div class="container main">
+    <div class="mainspace border">
+      <div id="board" ng-cloak>
+        <table>
+          <tr id="row1">
+            <td class="square" ng-click="fill00()" ng-cloak>{{space[0][0]}}</td>
+            <td class="square v" ng-click="fill01()">{{space[0][1]}}</td>
+            <td class="square" ng-click="fill02()">{{space[0][2]}}</td>
+          </tr>
+          <tr id="row2">
+            <td class="square h" ng-click="fill10()">{{space[1][0]}}</td>
+            <td class="square v h" ng-click="fill11()">{{space[1][1]}}</td>
+            <td class="square h" ng-click="fill12()">{{space[1][2]}}</td>
+          </tr>
+          <tr id="row3">
+            <td class="square" ng-click="fill20()">{{space[2][0]}}</td>
+            <td class="square v"ng-click="fill21()">{{space[2][1]}}</td>
+            <td class="square" ng-click="fill22()">{{space[2][2]}}</td>
+          </tr>
+        </table>
+      </div><!-- table test -->
+    </div><!-- mainspace -->
+  </div><!-- container main -->
 </body>
 
 </html>
+
+<!-- User Story: As a user, I can play a game of Tic Tac Toe with the computer.
+Bonus User Story: As a user, I can never actually win against the computer - at best I can tie.
+Bonus User Story: As a user, my game will reset as soon as it's over so I can play again.
+Bonus User Story: As a user, I can choose whether I want to play as X or O. -->

@@ -14,7 +14,6 @@ class RomanDict {
 
 }
 
-
 function stringMultiplier(str, n) {
 	var result_str = "";
 
